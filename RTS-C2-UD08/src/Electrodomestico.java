@@ -6,7 +6,7 @@ public class Electrodomestico {
 	protected Double precioBase,peso;
 	protected String color;
 	private String[] arrayColores= {"blanco", "negro", "rojo", "azul", "gris"};
-	protected ArrayList<String> coloresDisponibles = new ArrayList<>(Arrays.asList(arrayColores)); 
+	protected final ArrayList<String> COLORES = new ArrayList<>(Arrays.asList(arrayColores)); 
 	protected char consumo;
 	
 	public Electrodomestico(Double precioBase, String color, char consumo, Double peso) {
@@ -34,14 +34,17 @@ public class Electrodomestico {
 		else
 			this.consumo = 'F';
 		
-		if(coloresDisponibles.contains(color.toLowerCase()))
-			this.color = color;
-		else
-			this.color = "blanco";
+		validarColor(color);
 		
 	}
 
-
+	private void validarColor(String color) {
+		if(COLORES.contains(color.toLowerCase()))
+			this.color = color;
+		else
+			this.color = "blanco";
+	}
+	
 	public Double getPrecioBase() {
 		return precioBase;
 	}
