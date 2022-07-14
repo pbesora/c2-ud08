@@ -29,7 +29,7 @@ public class Electrodomestico {
 		this.precioBase = precioBase;
 		this.peso = peso;
 		
-		if(consumo>64 && consumo<91) 
+		if(consumo>64 && consumo<71) 
 			this.consumo = consumo;
 		else
 			this.consumo = 'F';
